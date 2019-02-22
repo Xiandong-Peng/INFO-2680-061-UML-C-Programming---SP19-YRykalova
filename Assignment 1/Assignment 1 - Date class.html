@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- saved from url=(0128)https://uml.umassonline.net/bbcswebdav/pid-1205277-dt-content-rid-12660590_1/courses/INFO.2680.061.SP19/Assignments/hw1_date.htm -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Assignment 1 - Date class</title>
+
+<style type="text/css">
+.auto-style1 {
+	color: #000099;
+}
+</style>
+</head>
+
+<body>
+<h4><font face="Arial" color="#000099">Assignment 1- Date class</font></h4>
+<hr><font face="Arial">
+<p>Necessary skills: <i>Basic class design, constructors and member functions, basic iostream output formatting</i></p>
+<p><b>Description</b></p>
+</font><p><font face="Arial">In this assignment, you'll create a C++ </font><font face="Courier">Date</font><font face="Arial"> class that stores a calendar 
+date.. You'll test it using the supplied test </font><font face="Courier">main() 
+</font><font face="Arial">function (attached below).</font></p>
+<p><font face="Arial">In your class, use three private integer data member variables 
+to represent the date (month, day, and year).</font></p><font face="Arial">
+<p>Supply the following public member functions in your class.</p>
+</font><ul><font face="Arial">
+	<li>A default constructor (taking no arguments) that initializes the Date 
+	object&nbsp; to Jan 1, 2000.</li>
+	<li>A constructor taking three arguments (month, day, year) that initializes 
+	the Date object to the parameter values.<ul>
+		<li>It sets the Date's year to 1900 if the year parameter is less than 
+		1900</li>
+		<li>It sets the Date's month to 1 if the month parameter is outside the 
+		range of 1 to 12.</li>
+		<li>It sets the Date's day to 1 if the day parameter is outside the 
+		range of days for the specific month. Assume February always has 28 days 
+		for this test.</li>
+	</ul>
+	</li>
+	</font><li><font face="Arial">A </font><font face="Courier">getDay</font><font face="Arial"> member function that returns the Date's day value.</font></li><font face="Arial">
+	</font><li><font face="Arial">A </font><font face="Courier">getMonth</font><font face="Arial"> member function that returns the Date's month value.</font></li><font face="Arial">
+	</font><li><font face="Arial">A </font><font face="Courier">getYear</font><font face="Arial"> member function that returns the Date's year value.</font></li><font face="Arial">
+	</font><li><font face="Arial">A </font><font face="Courier">getMonthName</font><font face="Arial"> member function that returns the name of the month for 
+	the Date's month (e.g. if the Date represents 2/14/2000, it returns 
+	"February").&nbsp; You can return a </font><font face="Courier">const char*</font><font face="Arial"> or a 
+	</font><font face="Courier">std::string</font><font face="Arial"> object from this 
+	function.</font></li><font face="Arial">
+	</font><li><font face="Arial">A </font><font face="Courier">print</font><font face="Arial"> member 
+	function that prints the date in the numeric form MM/DD/YYYY 
+	to cout (e.g. 02/14/2000). Month and day must be two digits with leading 
+	zeros as needed.</font></li><font face="Arial">
+	</font><li><font face="Arial">A </font><font face="Courier">printLong</font><font face="Arial"> member function that prints the date with the month's name in 
+	the form dd month yyyy (e.g. 14 February 2000) to cout. This member function 
+	should call the </font><font face="Courier">getMonthName()</font><font face="Arial"> 
+	member function to get the name.&nbsp; No leading zeroes required for the 
+	day.</font></li><font face="Arial">
+</font></ul><font face="Arial">
+<p>The class data members should be set to correct values by the <em>constructor
+</em>methods so the get 
+and print member functions simply return or print the data member values. The 
+constructor methods must validate their parameter values (eg. verify the month 
+parameter is within the range of 1 to 12) and only set the Date data members to 
+represent a valid date, thus ensuring the Date object's data members (i.e. its 
+state) always represent a valid date.</p>
+</font><p><font face="Arial">The </font><font face="Courier">print</font><font face="Arial"> member function should output the date in the format MM/DD/YYYY with leading zeros as needed, using the C++ IOStreams cout object. To get formatting to work with C++ IOStreams (cout), look at the setw() and setfill() manipulator descriptions, or the width() and fill() functions in the chapter on the C++ I/O System.</font></p><font face="Arial">
+<p><tt>&nbsp;&nbsp; #include &lt;iostream&gt;<br>&nbsp;&nbsp; #include &lt;iomanip&gt;<br>&nbsp;&nbsp; #include &lt;string&gt;<br>&nbsp;&nbsp; using namespace std;&nbsp; // or use individual directives, e.g. 
+using std::string;<br>&nbsp;&nbsp; <br>&nbsp;&nbsp; class Date <br>&nbsp;&nbsp; {<br>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // methods and data necessary<br><br>&nbsp;&nbsp; };</tt></p>
+</font><p><font face="Arial">Use separate files for the </font><font face="Courier">Date</font><font face="Arial"> 
+class definition (in </font><font face="Courier">Date.h</font><font face="Arial">), 
+implementation of the member functions (</font><font face="Courier">Date.cpp</font><font face="Arial">), 
+and the attached test main()&nbsp; function (</font><font face="Courier">DateDemo.cpp</font><font face="Arial">).&nbsp;&nbsp; 
+The shortest member functions (like getDay() ) may be implemented in the class 
+definition (so they will be inlined).&nbsp; Other member functions should be 
+implemented in the </font><font face="Courier">Date.cpp</font><font face="Arial"> 
+file.&nbsp; Both </font><font face="Courier">Date.cpp</font><font face="Arial"> 
+and </font><font face="Courier">DateDemo.cpp </font><font face="Arial">will need 
+to #include the </font><font face="Courier">Date.h </font><font face="Arial">file (since they both need the 
+</font><font face="Courier">Date</font><font face="Arial"> 
+class definition in order to compile) and other include files that are needed 
+(e.g. iostream, string, etc).</font></p><font face="Arial">
+<h4>Sample code and output</h4>
+<p><tt>&nbsp;&nbsp; // DateDemo.cpp<br>&nbsp;&nbsp; // Note - you may need to change the definition of the main 
+function to <br>&nbsp;&nbsp; // be consistent with what your C++ compiler expects. 
+<br>&nbsp;&nbsp; int main() <br>&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+cout &lt;&lt; "DateDemo starting ..." &lt;&lt; endl &lt;&lt; endl;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Date d1;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+// default ctor<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Date d2(7, 4, 1976); // July 4'th 1976<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Date d3(0, 15, 1880);// Adjusted by ctor to 
+January 15'th 1900<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; d1.print();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // prints 01/01/2000<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; d1.printLong();&nbsp; // prints 1 January 2000<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cout &lt;&lt; endl;<br>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; d2.print();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // prints 07/04/1976<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; d2.printLong();&nbsp; // prints 4 July 1976<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cout &lt;&lt; endl;<br>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; d3.print();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // prints 01/15/1900<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; d3.printLong();&nbsp; // prints 15 January 1900<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cout &lt;&lt; endl;<br>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cout &lt;&lt; "object d2's day is " &lt;&lt; d2.getDay() &lt;&lt; 
+endl; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cout &lt;&lt; "object d2's month is "&nbsp; &lt;&lt; 
+d2.getMonth() &lt;&lt; " which is " &lt;&lt; d2.getMonthName() &lt;&lt; endl;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cout &lt;&lt; "object d2's year is " &lt;&lt; d2.getYear() &lt;&lt; 
+endl;<br>&nbsp;&nbsp; }</tt></p>
+<h4>main() test code</h4>
+<font face="Courier New">
+<p><font face="Arial"><span class="auto-style1"><strong>Use the attached DateDemo.cpp source 
+file to test your class.</strong></span> </font></p>
+</font><p><font face="Courier New"></font>Save this source as a separate DateDemo.cpp source file that contains 
+the supplied main() function. Compile your Data.cpp file first, then this 
+DateDemo.cpp next.</p>
+<p>Links</p>
+<ul>
+	<li><a href="http://www.youtube.com/watch?v=7efT0T2FhRA" target="_blank">
+	Reel Learning on YouTube - <font face="Arial">Programming Errors (C++)</font></a></li>
+	<li><a href="http://www.youtube.com/watch?v=jz0k_uHbwnk" target="_blank">Reel Learning on YouTube - Header Files in C++</a></li>
+	<li><a href="http://www.youtube.com/watch?v=S1SGDq0Cc3s" target="_blank">Reel Learning on YouTube - First C++ Program</a></li>
+</ul>
+</font><p><font face="Arial"></font><tt><br></tt></p><tt>
+<center><hr></center></tt>
+
+
+
+</body></html>
